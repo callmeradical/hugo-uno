@@ -6,6 +6,11 @@
         <div class="post">
           <h1>{{ .Title }}</h1>
           <span class="post-date">{{ .Date.Format "Mon, Jan 2, 2006" }}</span>
+          <div class="feature">
+          {{ if isset .Params "featuredimg" }}
+            <img src={{ index .Params "featuredimg" }}>
+          {{ end }}
+          </div>
           {{ .Content }}
         </div>
         {{ partial "sharing.html" .}}
